@@ -39,12 +39,12 @@ public class Kontakt : IComparable<Kontakt>
         private class StackItem
         {
             public T Data { get; set; }
-            public StackItem Nächstes { get; set; }
+            public StackItem Next { get; set; }
 
             public StackItem(T data)
             {
                 Data = data;
-                Nächstes = null;
+                Next = null;
             }
         }
 
@@ -58,14 +58,14 @@ public class Kontakt : IComparable<Kontakt>
         public void Push(T item)
         {
             var neuerGegenstand = new StackItem(item);
-            neuerGegenstand.Nächstes = top;
+            neuerGegenstand.Next = top;
             top = neuerGegenstand;
         }
 
         public T Pop()
         {
             var gegenstand = top.Data;
-            top = top.Nächstes;
+            top = top.Next;
             return gegenstand;
         }
 
